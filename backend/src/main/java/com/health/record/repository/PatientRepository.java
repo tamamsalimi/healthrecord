@@ -36,7 +36,7 @@ public interface PatientRepository
         WHERE
             p.status = :status
             AND (
-            CAST(p.id AS string) = :keyword
+            CAST(p.id AS string) LIKE (CONCAT('%', :keyword, '%'))
             OR LOWER(p.firstName) LIKE LOWER(CONCAT('%', :keyword, '%'))
             OR LOWER(p.lastName)  LIKE LOWER(CONCAT('%', :keyword, '%')))
     """)

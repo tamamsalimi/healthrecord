@@ -19,30 +19,30 @@ services:
       timeout: 5s
       retries: 5
 
-  backend:
-    build:
-      context: ./backend
-    container_name: record-backend
-    restart: unless-stopped
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/record_db
-      SPRING_DATASOURCE_USERNAME: record_user
-      SPRING_DATASOURCE_PASSWORD: record_pass
-    ports:
-      - "8080:8080"
-    depends_on:
-      postgres:
-        condition: service_healthy
+#  backend:
+#    build:
+#      context: ./backend
+#    container_name: record-backend
+#    restart: unless-stopped
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/record_db
+#      SPRING_DATASOURCE_USERNAME: record_user
+#      SPRING_DATASOURCE_PASSWORD: record_pass
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      postgres:
+#        condition: service_healthy
 
-  frontend:
-    build:
-      context: frontendtest
-    container_name: record-frontend
-    restart: unless-stopped
-    ports:
-      - "4200:80"
-    depends_on:
-      - backend
+#  frontend:
+#    build:
+#      context: frontendt
+#    container_name: record-frontend
+#    restart: unless-stopped
+#    ports:
+#      - "4200:80"
+#    depends_on:
+#      - backend
 
 volumes:
   record_pg_data:
