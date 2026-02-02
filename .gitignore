@@ -21,6 +21,7 @@ target/
 
 
 
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -33,3 +34,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/frontend/.vscode/
